@@ -1,0 +1,23 @@
+.main-container {
+    padding: 20px 40px;
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: solid 2px gainsboro;
+        .header-title {
+            font-family: sans-serif;
+            font-weight: normal;
+        }
+        .new-button {
+            font-family: sans-serif;
+            height: 35px;
+            width: 130px;
+            margin-top: 26px;
+            border-radius: 3px;
+            background-color: royalblue;
+            color: white;
+            border: none;
+        }
+    }
+}
