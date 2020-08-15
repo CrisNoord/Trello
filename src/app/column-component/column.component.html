@@ -1,7 +1,8 @@
 <div class="column-container">
     <div class="column-header">
         <div class="colum-title">
-            <span>{{this.columnTitle}}</span>
+            <span *ngIf="!showInput" (click)="toggleInputText(true)">{{this.columnTitle}}</span>
+            <input *ngIf="showInput" #nameInput [(ngModel)]="this.columnTitle" type="text" (blur)="toggleInputText(false)">
         </div>
         <div class="delete-column" (click)="deleteColumn()">
             <ion-icon name="close-outline"></ion-icon>
