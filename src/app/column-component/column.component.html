@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="card-container">
-        <card></card>
+        <card *ngFor="let cardDescription of cards; let i = index" [cardDescription]="cardDescription" [cardIdex]="i"></card>
     </div>
-    <button class="add-card-button">+ Agregar Card</button>
+    <button class="add-card-button" (click)="addCard()">+ Agregar Card</button>
 </div>

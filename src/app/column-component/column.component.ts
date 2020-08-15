@@ -23,6 +23,7 @@ export class ColumnComponent implements OnChanges {
   @Output() onDeleteColumnClicked = new EventEmitter<number>();
 
   public columnTitle: string;
+  public cards: Array<string> = [];
   public showInput: boolean = false;
 
   constructor() { }
@@ -30,6 +31,7 @@ export class ColumnComponent implements OnChanges {
   ngOnInit(): void {
     if (this.data) {
         this.columnTitle = this.data.columnName;
+        this.cards = this.data.cards;
     }
   }
 
@@ -37,6 +39,7 @@ export class ColumnComponent implements OnChanges {
       if (changes.hasOwnProperty('data')) {
         if (this.data) {
             this.columnTitle = this.data.columnName;
+            this.cards = this.data.cards;
         }
       }
   }
@@ -58,5 +61,12 @@ export class ColumnComponent implements OnChanges {
     if (this.showInput) {
       setTimeout(() => this.nameInput.nativeElement.focus());
     }
+  }
+
+  /**
+   * method fired on clicking add new card button
+   */
+  public addCard() {
+    this.cards.push('testtetando');
   }
 }

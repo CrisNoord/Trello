@@ -6,6 +6,7 @@
     <div class="board-container">
         <div class="columns-container">
             <column 
+              class="column-element"
               *ngFor="let item of columnsArray; let i = index" 
               [data]="item" 
               [columnIndex]="i"

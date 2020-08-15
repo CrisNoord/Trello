@@ -28,6 +28,9 @@
         height: 100%;
         .columns-container {
             display: flex;
+            .column-element {
+                margin-right: 10px;
+            }
         }
         div {
             height: 100%;
