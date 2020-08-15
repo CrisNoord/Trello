@@ -1,9 +1,11 @@
 <div class="main-container">
     <div class="header">
         <h1 class="header-title">Board de Tareas</h1>
-        <button class="new-button">Agregar Columna</button>
+        <button class="new-button" (click)="addColumn()">Agregar Columna</button>
     </div>
     <div class="board-container">
-        <column></column>
+        <div class="columns-container">
+            <column *ngFor="let item of columnsArray;" [data]="item"></column>
+        </div>
     </div>
 </div>
