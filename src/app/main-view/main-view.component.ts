@@ -26,4 +26,13 @@ export class MainViewComponent implements OnInit {
     this.columnsArray.push(newOne);
   }
 
+  /**
+   * on delete column icon clicked on child component, 
+   * we catch the event here to delete the column from our Array
+   * @param index 
+   */
+  public deleteColumn(index: number) {
+    this.columnsArray.splice(index,1);
+  }
+
 }

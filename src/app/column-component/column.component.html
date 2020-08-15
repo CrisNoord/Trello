@@ -1,6 +1,11 @@
 <div class="column-container">
-    <div class="colum-title">
-        <span>{{this.columnTitle}}</span>
+    <div class="column-header">
+        <div class="colum-title">
+            <span>{{this.columnTitle}}</span>
+        </div>
+        <div class="delete-column" (click)="deleteColumn()">
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
     </div>
     <div class="card-container"></div>
     <button class="add-card-button">+ Agregar Card</button>

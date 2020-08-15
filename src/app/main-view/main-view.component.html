@@ -5,7 +5,11 @@
     </div>
     <div class="board-container">
         <div class="columns-container">
-            <column *ngFor="let item of columnsArray;" [data]="item"></column>
+            <column 
+              *ngFor="let item of columnsArray; let i = index" 
+              [data]="item" 
+              [columnIndex]="i"
+              (onDeleteColumnClicked)="deleteColumn($event)"></column>
         </div>
     </div>
 </div>

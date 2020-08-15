@@ -1,4 +1,11 @@
-import { Component, OnChanges, Input, SimpleChange, SimpleChanges } from '@angular/core';
+import { 
+  Component, 
+  OnChanges, 
+  Input, 
+  SimpleChanges, 
+  Output, 
+  EventEmitter
+} from '@angular/core';
 import { Column } from '../models/column';
 
 @Component({
@@ -9,6 +16,8 @@ import { Column } from '../models/column';
 export class ColumnComponent implements OnChanges {
 
   @Input() data: Column;
+  @Input() columnIndex: number;
+  @Output() onDeleteColumnClicked = new EventEmitter<number>();
 
   public columnTitle: string;
 
@@ -26,5 +35,12 @@ export class ColumnComponent implements OnChanges {
             this.columnTitle = this.data.columnName;
         }
       }
+  }
+
+  /**
+   * method fired on click delete column icon
+   */
+  public deleteColumn() {
+    this.onDeleteColumnClicked.emit(this.columnIndex);
   }
 }

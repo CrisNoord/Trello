@@ -7,8 +7,19 @@
     padding: 20px 15px 15px;
     border-radius: 3px;
     border: solid 2px lightgray;
-    .colum-title {
-        margin-bottom: 25px;
+    .column-header {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        .delete-column {
+            cursor: pointer;
+            background-color: whitesmoke;
+            width: 25px;
+            height: 20px;
+            text-align: center;
+            padding-top: 7px;
+            border-radius: 3px;
+        }
     }
     .add-card-button {
         background-color: white;
