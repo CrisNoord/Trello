@@ -2,14 +2,24 @@
     <div class="column-header">
         <div class="colum-title">
             <span *ngIf="!showInput" (click)="toggleInputText(true)">{{this.columnTitle}}</span>
-            <input *ngIf="showInput" #nameInput [(ngModel)]="this.columnTitle" type="text" (blur)="toggleInputText(false)">
+            <input #nameInput
+            *ngIf="showInput" 
+            [(ngModel)]="this.columnTitle" 
+            type="text" 
+            (blur)="toggleInputText(false)"
+            (keyup.enter)="loseFocus()">
         </div>
         <div class="delete-column" (click)="deleteColumn()">
             <ion-icon name="close-outline"></ion-icon>
         </div>
     </div>
     <div class="card-container">
-        <card *ngFor="let cardDescription of cards; let i = index" [cardDescription]="cardDescription" [cardIdex]="i"></card>
+        <card *ngFor="let cardDescription of cards; let i = index"
+            [cardDescription]="cardDescription" 
+            [cardIndex]="i"
+            (onDeleteClicked)="deleteCard($event)"
+            (onUpdateCard)="updateColumn($event)">
+        </card>
     </div>
-    <button class="add-card-button" (click)="addCard()">+ Agregar Card</button>
+    <button *ngIf="!creatingCard" class="add-card-button" (click)="addCard()">+ Agregar Card</button>
 </div>

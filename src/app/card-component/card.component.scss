@@ -3,7 +3,19 @@
     border-radius: 3px;
     border: solid 2px lightgray;
     margin-bottom: 5px;
-    .card-description {
+    .description-container {
+        width: 232px;
         padding-left: 10px;
+        padding-right: 10px;
+        word-break: break-word;
+    }
+    .input-container {
+        width: 232px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin: 16px 0px;
+        .description-input {
+            width: 222px;
+        }
     }
 }

@@ -1,3 +1,13 @@
 <div class="card-container">
-    <p class="card-description">{{cardDescription}}</p>
+    <div *ngIf="!showCardNameEditor" (click)="toggleNameEditor(true)" class="description-container">
+        <p class="card-description">{{cardDescription}}</p>
+    </div>
+    <div *ngIf="showCardNameEditor" class="input-container">
+        <input #nameEditor 
+        [(ngModel)]="cardDescription" 
+        type="text" 
+        class="description-input" 
+        (blur)="toggleNameEditor(false)"
+        (keyup.enter)="loseFocus()">
+    </div>
 </div>

@@ -9,6 +9,7 @@ import {
   ElementRef
 } from '@angular/core';
 import { Column } from '../models/column';
+import { ICard } from '../models/card';
 
 @Component({
   selector: 'column',
@@ -25,6 +26,7 @@ export class ColumnComponent implements OnChanges {
   public columnTitle: string;
   public cards: Array<string> = [];
   public showInput: boolean = false;
+  public creatingCard: boolean = false;
 
   constructor() { }
 
@@ -64,9 +66,35 @@ export class ColumnComponent implements OnChanges {
   }
 
   /**
+   * on enter key pressed, make blur to editor name input
+   */
+  public loseFocus() {
+    this.nameInput.nativeElement.blur();
+  }
+
+  /**
    * method fired on clicking add new card button
    */
   public addCard() {
-    this.cards.push('testtetando');
+    this.cards.push('');
+    this.creatingCard = true;
+  }
+
+  /**
+   * metthod fired on click delete card, or on create an empty card
+   * @param index index of card to delete
+   */
+  public deleteCard(index:number) {
+    this.cards.splice(index,1);
+    this.creatingCard = false;
+  }
+
+  /**
+   * on edit card or create a new one, we update our cards array
+   * @param data info with description to update and card's index to update
+   */
+  public updateColumn(data: ICard) {
+    this.cards[data.cardIndex] = data.cardDescription;
+    this.creatingCard = false;
   }
 }
