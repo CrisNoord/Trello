@@ -36,7 +36,6 @@ import { ICard } from '../models/card';
      * @param show value to hide/show the name editor
      */
     public toggleNameEditor(show: boolean) {
-      debugger
       this.showCardNameEditor = show;
       if (!this.showCardNameEditor) {
           this.checkForCardDeletion()

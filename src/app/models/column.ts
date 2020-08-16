@@ -1,4 +1,5 @@
 export interface Column {
-    cards: Array<any>;
+    cards: Array<string>;
     columnName: string;
+    connectedLists: Array<string>
 }

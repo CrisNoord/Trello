@@ -6,6 +6,10 @@
     <div class="board-container">
         <div class="columns-container">
             <column 
+              cdkDropList
+              (cdkDropListDropped)="drop($event)"
+              id="list-{{i}}"
+              [cdkDropListConnectedTo]="item.connectedLists"
               class="column-element"
               *ngFor="let item of columnsArray; let i = index" 
               [data]="item" 

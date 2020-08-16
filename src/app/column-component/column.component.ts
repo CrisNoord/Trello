@@ -8,6 +8,7 @@ import {
   ViewChild,
   ElementRef
 } from '@angular/core';
+
 import { Column } from '../models/column';
 import { ICard } from '../models/card';
 

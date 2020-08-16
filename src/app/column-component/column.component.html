@@ -15,10 +15,12 @@
     </div>
     <div class="card-container">
         <card *ngFor="let cardDescription of cards; let i = index"
+            id="card-{{i}}"
             [cardDescription]="cardDescription" 
             [cardIndex]="i"
             (onDeleteClicked)="deleteCard($event)"
-            (onUpdateCard)="updateColumn($event)">
+            (onUpdateCard)="updateColumn($event)"
+            cdkDrag>
         </card>
     </div>
     <button *ngIf="!creatingCard" class="add-card-button" (click)="addCard()">+ Agregar Card</button>
