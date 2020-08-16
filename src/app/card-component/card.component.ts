@@ -36,20 +36,20 @@ import { ICard } from '../models/card';
      * @param show value to hide/show the name editor
      */
     public toggleNameEditor(show: boolean) {
+      debugger
       this.showCardNameEditor = show;
-      if (this.showCardNameEditor) {
-        setTimeout(() => this.nameEditor.nativeElement.focus());
+      if (!this.showCardNameEditor) {
+          this.checkForCardDeletion()
       } else {
-        this.checkForCardDeletion();
+        setTimeout(() => this.nameEditor.nativeElement.focus());
       }
     }
 
     /**
-     * method fired on enter pressed
+     * method fired on delete card icon clicked
      */
-    public loseFocus() {
-      this.nameEditor.nativeElement.blur();
-      this.showCardNameEditor = false;
+    public deleteCard() {
+      this.onDeleteClicked.emit(this.cardIndex);
     }
 
     /**

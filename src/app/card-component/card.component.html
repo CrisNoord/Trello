@@ -1,13 +1,15 @@
 <div class="card-container">
     <div *ngIf="!showCardNameEditor" (click)="toggleNameEditor(true)" class="description-container">
         <p class="card-description">{{cardDescription}}</p>
+        <div class="delete-card" (click)="deleteCard()">
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
     </div>
     <div *ngIf="showCardNameEditor" class="input-container">
         <input #nameEditor 
         [(ngModel)]="cardDescription" 
         type="text" 
         class="description-input" 
-        (blur)="toggleNameEditor(false)"
-        (keyup.enter)="loseFocus()">
+        (focusout)="toggleNameEditor(false)">
     </div>
 </div>

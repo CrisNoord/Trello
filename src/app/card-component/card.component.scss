@@ -4,10 +4,25 @@
     border: solid 2px lightgray;
     margin-bottom: 5px;
     .description-container {
+        display: flex;
         width: 232px;
         padding-left: 10px;
         padding-right: 10px;
         word-break: break-word;
+        .delete-card {
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: whitesmoke;
+            width: 25px;
+            height: 20px;
+            text-align: center;
+            padding-top: 7px;
+            border-radius: 3px;
+        }
+
+        .card-description {
+            width: 217px;
+        }
     }
     .input-container {
         width: 232px;
@@ -16,6 +31,8 @@
         margin: 16px 0px;
         .description-input {
             width: 222px;
+            border: none;
+            outline: none;
         }
     }
 }
