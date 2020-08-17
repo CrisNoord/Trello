@@ -1,6 +1,10 @@
 <div class="main-container">
     <div class="header">
         <h1 class="header-title">Board de Tareas</h1>
+        <div class="search-bar">
+            <label>Buscar: </label>
+            <input type="text" [(ngModel)]="searchValue" (keyup)="filter()">
+        </div>
         <button class="new-button" (click)="addColumn()">Agregar Columna</button>
     </div>
     <div class="board-container">

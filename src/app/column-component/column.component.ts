@@ -97,7 +97,6 @@ export class ColumnComponent implements OnChanges {
    * @param data info with description to update and card's index to update
    */
   public updateColumn(data: ICard) {
-    debugger
     this.cards[data.cardIndex] = data.cardDescription;
     this.creatingCard = false;
     this.dataUpdated.emit(true);

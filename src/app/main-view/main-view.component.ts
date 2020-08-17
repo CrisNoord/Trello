@@ -10,7 +10,9 @@ import { DataService } from '../providers/data.provider';
 })
 export class MainViewComponent implements OnInit {
 
+  private originalData: Array<Column> = [];
   public columnsArray: Array<Column> = [];
+  public searchValue: string = '';
   constructor(private dataProvider: DataService) { }
 
   ngOnInit(): void {
@@ -18,6 +20,13 @@ export class MainViewComponent implements OnInit {
     if (data) {
       this.columnsArray = data;
     }
+  }
+
+  /**
+   * method fired on type search values
+   */
+  public filter() {
+    this.columnsArray = this.dataProvider.getFilteredCards(this.searchValue);
   }
 
   /**
