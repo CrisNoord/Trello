@@ -10,6 +10,7 @@
         [(ngModel)]="cardDescription" 
         type="text" 
         class="description-input" 
-        (focusout)="toggleNameEditor(false)">
+        (blur)="toggleNameEditor(false)"
+        (keyup.enter)="loseFocus()">
     </div>
 </div>

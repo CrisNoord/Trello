@@ -28,7 +28,13 @@ import { ICard } from '../models/card';
 
     ngOnInit(): void {
       this.showCardNameEditor = true;
-      setTimeout(() => this.nameEditor.nativeElement.focus());
+      if (!this.cardDescription.length) {
+        setTimeout(() => {
+          this.nameEditor.nativeElement.focus();
+        });
+      } else {
+        this.showCardNameEditor = false;
+      }
     }
 
     /**
@@ -43,6 +49,14 @@ import { ICard } from '../models/card';
         setTimeout(() => this.nameEditor.nativeElement.focus());
       }
     }
+
+    /**
+   * on enter key pressed, make blur to editor name input
+   */
+  public loseFocus() {
+    this.nameEditor.nativeElement.blur();
+    this.showCardNameEditor = false;
+  }
 
     /**
      * method fired on delete card icon clicked
