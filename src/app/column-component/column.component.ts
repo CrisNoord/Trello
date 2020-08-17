@@ -23,6 +23,7 @@ export class ColumnComponent implements OnChanges {
   @Input() data: Column;
   @Input() columnIndex: number;
   @Output() onDeleteColumnClicked = new EventEmitter<number>();
+  @Output() dataUpdated = new EventEmitter<boolean>();
 
   public columnTitle: string;
   public cards: Array<string> = [];
@@ -88,6 +89,7 @@ export class ColumnComponent implements OnChanges {
   public deleteCard(index:number) {
     this.cards.splice(index,1);
     this.creatingCard = false;
+    this.dataUpdated.emit(true);
   }
 
   /**
@@ -95,7 +97,9 @@ export class ColumnComponent implements OnChanges {
    * @param data info with description to update and card's index to update
    */
   public updateColumn(data: ICard) {
+    debugger
     this.cards[data.cardIndex] = data.cardDescription;
     this.creatingCard = false;
+    this.dataUpdated.emit(true);
   }
 }

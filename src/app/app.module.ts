@@ -9,6 +9,8 @@ import { MainViewComponent } from './main-view/main-view.component';
 import { ColumnComponent } from './column-component/column.component';
 import { CardComponent } from './card-component/card.component';
 
+import { DataService } from './providers/data.provider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,7 @@ import { CardComponent } from './card-component/card.component';
     FormsModule,
     DragDropModule
   ],
-  providers: [],
+  providers: [DataService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })

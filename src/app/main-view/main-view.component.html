@@ -14,7 +14,8 @@
               *ngFor="let item of columnsArray; let i = index" 
               [data]="item" 
               [columnIndex]="i"
-              (onDeleteColumnClicked)="deleteColumn($event)"></column>
+              (onDeleteColumnClicked)="deleteColumn($event)"
+              (dataUpdated)="saveData()"></column>
         </div>
     </div>
 </div>

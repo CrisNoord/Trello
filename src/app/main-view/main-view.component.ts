@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Column } from '../models/column';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { DataService } from '../providers/data.provider';
 
 @Component({
   selector: 'app-main-view',
@@ -10,9 +11,13 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
 export class MainViewComponent implements OnInit {
 
   public columnsArray: Array<Column> = [];
-  constructor() { }
+  constructor(private dataProvider: DataService) { }
 
   ngOnInit(): void {
+    let data = this.dataProvider.getColumns();
+    if (data) {
+      this.columnsArray = data;
+    }
   }
 
   /**
@@ -32,6 +37,7 @@ export class MainViewComponent implements OnInit {
     }
     this.columnsArray.push(newOne);
     this.connectLists();
+    this.saveData();
   }
 
   /**
@@ -41,6 +47,7 @@ export class MainViewComponent implements OnInit {
    */
   public deleteColumn(index: number) {
     this.columnsArray.splice(index,1);
+    this.saveData();
   }
 
   /**
@@ -55,7 +62,15 @@ export class MainViewComponent implements OnInit {
       // move between lists
       let card = this.removeAndReturnCard(previousColumnIndex, cardIndex);
       this.pushCardToColumn(card, newColumnIndex);
+      this.saveData();
     }
+  }
+
+  /**
+   * store data in localStorage throught data provider
+   */
+  public saveData() {
+    this.dataProvider.saveColumns(this.columnsArray);
   }
 
   /**
