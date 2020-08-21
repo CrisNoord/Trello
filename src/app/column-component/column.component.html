@@ -13,15 +13,17 @@
             <ion-icon name="close-outline"></ion-icon>
         </div>
     </div>
-    <div class="card-container">
-        <card *ngFor="let cardDescription of cards; let i = index"
-            id="card-{{i}}"
-            [cardDescription]="cardDescription" 
-            [cardIndex]="i"
-            (onDeleteClicked)="deleteCard($event)"
-            (onUpdateCard)="updateColumn($event)"
-            cdkDrag>
-        </card>
+    <div class="cards-container">
+        <div cdkDrag class="card-container"
+        *ngFor="let cardDescription of cards; let i = index">
+            <card
+              id="card-{{i}}"
+              [cardDescription]="cardDescription" 
+              [cardIndex]="i"
+              (onDeleteClicked)="deleteCard($event)"
+              (onUpdateCard)="updateColumn($event)">
+            </card>
+        </div>
     </div>
     <button *ngIf="!creatingCard" class="add-card-button" (click)="addCard()">+ Agregar Card</button>
 </div>
